@@ -4,16 +4,16 @@
 // define interface type
 #define interface struct
 
-// define encording type
+// define encoding type
 enum E_ENCODING_TYPE
 {
-	e_encording_utf8_without_bom = 0,
-	e_encording_ansi = 1,
-	e_encording_utf8 = 2,				// EF BB BF		UTF-8
-	e_encording_ucs2_big_endian = 3,	// FF FE		UTF-16/UCS-2,big edian
-	e_encording_ucs2_little_endian = 4,	// FE FF		UTF-16/UCS-2,little edian	
-	e_encording_ucs4_big_endian = 5,	// 00 00 FF FE 	UTF-32/UCS-4,big edian
-	e_encording_ucs4_little_endian = 6,	// 00 00 FE FF	UTF-32/UCS-4,little edian
+	e_encoding_utf8_without_bom = 0,
+	e_encoding_ansi = 1,
+	e_encoding_utf8 = 2,				// EF BB BF		UTF-8
+	e_encoding_ucs2_big_endian = 3,	// FF FE		UTF-16/UCS-2,big edian
+	e_encoding_ucs2_little_endian = 4,	// FE FF		UTF-16/UCS-2,little edian	
+	e_encoding_ucs4_big_endian = 5,	// 00 00 FF FE 	UTF-32/UCS-4,big edian
+	e_encoding_ucs4_little_endian = 6,	// 00 00 FE FF	UTF-32/UCS-4,little edian
 };
 
 // define detectiong error type

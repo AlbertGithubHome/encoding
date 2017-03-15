@@ -53,7 +53,7 @@ typedef unsigned int   DWORD;
 #define	UTF8_OTHER_BYTE_BEGIN_VALUE	128
 #define	UTF8_OTHER_BYTE_END_VALUE	191
 
-// ansi encording end value
+// ansi encoding end value
 #define ANSI_BYTE_END_VALUE	0x7F
 
 #endif // __COMMON_DEF_H__

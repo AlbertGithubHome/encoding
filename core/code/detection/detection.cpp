@@ -71,7 +71,7 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 		}
 		else if (nReadCount <= 1)
 		{
-			nHandleRet = e_encording_utf8_without_bom;
+			nHandleRet = e_encoding_utf8_without_bom;
 			break;
 		}
 		
@@ -79,12 +79,12 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 		{
 			if (pContentBuffer[0] == 0xFF && pContentBuffer[1] == 0xFE)
 			{
-				nHandleRet = e_encording_ucs2_little_endian;
+				nHandleRet = e_encoding_ucs2_little_endian;
 				break;
 			}
 			else if (pContentBuffer[0] == 0xFE && pContentBuffer[1] == 0xFF)
 			{
-				nHandleRet = e_encording_ucs2_big_endian;
+				nHandleRet = e_encoding_ucs2_big_endian;
 				break;
 			}
 		}
@@ -93,7 +93,7 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 		{
 			if (pContentBuffer[0] == 0xEF &&  pContentBuffer[1] == 0xBB && pContentBuffer[2] == 0xBF)
 			{
-				nHandleRet = e_encording_utf8;
+				nHandleRet = e_encoding_utf8;
 				break;
 			}
 		}
@@ -102,13 +102,13 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 		{
 			if (pContentBuffer[0] == 0x0 && pContentBuffer[1] == 0x0 && pContentBuffer[2] == 0xFF && pContentBuffer[3] == 0xFE)
 			{
-				nHandleRet = e_encording_ucs4_little_endian;
+				nHandleRet = e_encoding_ucs4_little_endian;
 				break;
 			}
 
 			if (pContentBuffer[0] == 0x0 && pContentBuffer[1] == 0x0 && pContentBuffer[2] == 0xFE && pContentBuffer[3] == 0xFF)
 			{
-				nHandleRet = e_encording_ucs4_big_endian;
+				nHandleRet = e_encoding_ucs4_big_endian;
 				break;
 			}
 		}
@@ -122,7 +122,7 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 			bIsASCII = false;
 			if (pContentBuffer[nIndex] >= UTF8_OTHER_BYTE_BEGIN_VALUE && pContentBuffer[nIndex] <= UTF8_OTHER_BYTE_END_VALUE)
 			{
-				nHandleRet = e_encording_ansi;
+				nHandleRet = e_encoding_ansi;
 				break;
 			}
 			else
@@ -139,7 +139,7 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 					if (pContentBuffer[nHeadIndex] >= UTF8_OTHER_BYTE_BEGIN_VALUE && pContentBuffer[nHeadIndex] <= UTF8_OTHER_BYTE_END_VALUE)
 						continue;
 
-					nHandleRet = e_encording_ansi;
+					nHandleRet = e_encoding_ansi;
 					nIndex = nReadCount;	// 为了跳出外层循环
 					break;
 				}
@@ -148,10 +148,10 @@ int CDetectionEncoding::GetEncoding(const char *szFileName)
 		}
 	} while (false);
 
-	// 前面逻辑都没找到说明是e_encording_utf8_without_bom
+	// 前面逻辑都没找到说明是e_encoding_utf8_without_bom
 	if (e_detection_error_no_result == nHandleRet)
 	{
-		nHandleRet = e_encording_utf8_without_bom;
+		nHandleRet = e_encoding_utf8_without_bom;
 	}
 
 	// 释放资源
