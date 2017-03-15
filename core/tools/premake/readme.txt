@@ -1,4 +1,4 @@
-1.run premake.bat to generate project solution
+1.run make.bat to generate project solution
 2.run makeclean.bat to delete project solution
 
 premake.lua is the configuration file.

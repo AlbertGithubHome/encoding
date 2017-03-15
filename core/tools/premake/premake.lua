@@ -3,8 +3,9 @@ solution "encoding"
   location "../../code"
 
   includedirs {
-    "../../code/Server/inc",
-    "../../code/Server/ServerCore",
+    "../../code/share",
+    "../../code/share/detection",
+    "../../code/detection",
   }
 
   defines{"_DEBUG","_SERVER","WIN32","_WINDOWS","_LIB","MY_CMD","_STANDALONE","_OPENALLFUNCTION","NO_DIRECT_X","_USE_32BIT_TIME_T"}
@@ -14,7 +15,7 @@ solution "encoding"
     location "../../code/main"
     kind "ConsoleApp"
     files { "../../code/main/**.h", "../../code/main/**.cpp"}
-    links {"libmysql"}
+    links {"detection"}
     libdirs{"../../code/share/library/Debug"}
     targetdir "../../bin"
     debugdir "../../bin"
@@ -29,7 +30,7 @@ solution "encoding"
     location "../../code/detection"
     kind "StaticLib"
     files { "../../code/detection/**.h", "../../code/detection/**.cpp"}
-    targetdir "code/Share/Lib/Debug"
+    targetdir "../../code/share/library/Debug"
     targetname "detection"
       configuration "Debug"
         flags { "Symbols","FatalWarnings" }
@@ -37,11 +38,11 @@ solution "encoding"
         defines { "NDEBUG" }
         flags { "Optimize", "FatalWarnings"}
 
-  project "Share"
+  project "share"
     location "../../code/share"
     kind "StaticLib"
-    files { "code/share/**.h"}
-    targetdir "code/Share/library/Debug"
+    files { "../../code/share/**.h"}
+    targetdir "../../code/share/library/Debug"
     targetname "share"
       configuration "Debug"
         flags { "Symbols" }

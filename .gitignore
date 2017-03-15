@@ -27,3 +27,16 @@
 *.exe
 *.out
 *.app
+
+# project and solution files
+*.vcproj
+*.user
+*.sln
+*.ncb
+*.suo
+
+# Temporary files
+*.idb
+*.ilk
+/encoding
+
