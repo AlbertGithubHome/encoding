@@ -21,7 +21,7 @@
 *.lai
 *.la
 *.a
-*.lib
+#*.lib
 
 # Executables
 *.exe
@@ -38,5 +38,7 @@
 # Temporary files
 *.idb
 *.ilk
-/encoding
+*.pdb
+obj/
+
 

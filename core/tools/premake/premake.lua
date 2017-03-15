@@ -16,7 +16,7 @@ solution "encoding"
     kind "ConsoleApp"
     files { "../../code/main/**.h", "../../code/main/**.cpp"}
     links {"detection"}
-    libdirs{"../../code/share/library/Debug"}
+    libdirs{"../../code/share/library/debug"}
     targetdir "../../bin"
     debugdir "../../bin"
       configuration "Debug"
@@ -30,7 +30,7 @@ solution "encoding"
     location "../../code/detection"
     kind "StaticLib"
     files { "../../code/detection/**.h", "../../code/detection/**.cpp"}
-    targetdir "../../code/share/library/Debug"
+    targetdir "../../code/share/library/debug"
     targetname "detection"
       configuration "Debug"
         flags { "Symbols","FatalWarnings" }
@@ -42,7 +42,7 @@ solution "encoding"
     location "../../code/share"
     kind "StaticLib"
     files { "../../code/share/**.h"}
-    targetdir "../../code/share/library/Debug"
+    targetdir "../../code/share/library/debug"
     targetname "share"
       configuration "Debug"
         flags { "Symbols" }
