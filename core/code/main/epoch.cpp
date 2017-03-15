@@ -11,7 +11,7 @@ int main(int argc, char **argv)
 	if (!IsDetectionServiceValid(pDetection))
 		return 0;
 
-	int nResult = pDetection->GetEncoding("");
+	int nResult = pDetection->GetEncoding("main.txt");
 	printf("result = %d\n", nResult);
 
 
