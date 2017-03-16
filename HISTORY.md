@@ -9,6 +9,6 @@
 
 	特别注意：
 	
-		文件中如果全为ASCII字符，则完全符合UTF8无BOM和ANSI这两种格式，本软件返回UTF8无BOM格式
+		文件中如果全为ASCII字符，则完全符合UTF8无BOM和ANSI这两种格式，当前软件默认返回UTF8无BOM格式
 
 ---
