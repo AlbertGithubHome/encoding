@@ -1,9 +1,9 @@
-#API Instructions
+# API Instructions
 ---
 
-##moudles
+## moudles
 
-###IDetectionEncoding
+### IDetectionEncoding
 
 - GetEncoding
  
