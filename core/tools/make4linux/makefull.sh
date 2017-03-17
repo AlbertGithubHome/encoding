@@ -1,7 +1,9 @@
 
 #generate Makefile.am for sus project
 cp generate_makefile_am.sh ../../code/detection
-cd ../../code/detection && ./generate_makefile_am.sh "libdetection"
+cd ../../code/detection 
+chmod 755 generate_makefile_am.sh
+./generate_makefile_am.sh "libdetection"
 
 #copy necessary file
 cd ../../tools/make4linux
