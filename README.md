@@ -24,3 +24,9 @@ Designed to deal with file coding issues
 >tools directory: **encoding\core\tools\make4linux**
 
 >warm prompt: **modify execute permission of the makefull.sh file before to run it.**
+
+---
+
+#license
+
+AlbertGithubHome/encoding is licensed under the GNU General Public License v3.0 license. Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
