@@ -1,3 +1,4 @@
+![Gitter](https://badges.gitter.im/Join Chat.svg)
 <a target="_blank" href="https://github.com/AlbertGithubHome/encoding/releases/tag/v0.2.0">![Version][badge.version]</a> <a target="_blank" href="https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE">![License][badge.license]</a>
 
 # encoding
