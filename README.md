@@ -1,6 +1,6 @@
 [![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/AlbertGithubHome/encoding/releases/tag/v0.2.0)
-
 [![license](https://img.shields.io/badge/license-GPL3.0-blue.svg)](https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE)
+
 # encoding
 Designed to deal with file coding issues
 
