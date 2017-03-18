@@ -1,5 +1,5 @@
-![Gitter](https://badges.gitter.im/Join Chat.svg)
-<a target="_blank" href="https://github.com/AlbertGithubHome/encoding/releases/tag/v0.2.0">![Version][badge.version]</a> <a target="_blank" href="https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE">![License][badge.license]</a>
+[![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/AlbertGithubHome/encoding/releases/tag/v0.2.0)
+[![License](https://img.shields.io/badge/license-GPL 3.0-blue.svg)](https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE)
 
 # encoding
 Designed to deal with file coding issues
