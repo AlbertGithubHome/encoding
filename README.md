@@ -1,8 +1,8 @@
 [![Version](https://img.shields.io/badge/version-0.2.0-green.svg)](https://github.com/AlbertGithubHome/encoding/releases/tag/v0.2.0)
-[![Platform](https://img.shields.io/badge/platform-windows%7Clinux-lightgrey.svg)]()
-[![Build](https://img.shields.io/badge/build-windows-yellow.svg)](https://github.com/AlbertGithubHome/encoding/tree/master/core/tools/make4windows)
+[![Platform](https://img.shields.io/badge/platform-linux%7Cwindows-lightgrey.svg)]()
 [![Build](https://img.shields.io/badge/build-linux-yellow.svg)](https://github.com/AlbertGithubHome/encoding/tree/master/core/tools/make4linux)
-[![license](https://img.shields.io/badge/license-GPL3.0-blue.svg)](https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE)
+[![Build](https://img.shields.io/badge/build-windows-yellow.svg)](https://github.com/AlbertGithubHome/encoding/tree/master/core/tools/make4windows)
+[![License](https://img.shields.io/badge/license-GPL3.0-blue.svg)](https://github.com/AlbertGithubHome/encoding/blob/master/LICENSE)
 
 # encoding
 Designed to deal with file coding issues
