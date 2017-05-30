@@ -7,6 +7,8 @@
 #include <memory.h>
 #include <string>
 
+#define NULL 0
+
 // define bytes size
 #define	KB	(1024)
 #define MB	(1024*1024)

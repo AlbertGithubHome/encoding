@@ -1,5 +1,8 @@
 #include "commondef.h"
 #include "detection_interface.h"
+#include "memoryblock/memoryblock.h"
+#include "converter.h"
+
 
 int main(int argc, char **argv)
 {
@@ -15,5 +18,8 @@ int main(int argc, char **argv)
 	printf("result = %d\n", nResult);
 
 
+	CMemoryBlockMgr::Singleton().GetFileContentBlock();;//Initalize(100);
+
+	B::Singleton();
 	getchar();
 }

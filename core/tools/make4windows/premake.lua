@@ -5,7 +5,9 @@ solution "encoding"
   includedirs {
     "../../code/share",
     "../../code/share/detection",
+    "../../code/share/utilities",
     "../../code/detection",
+    "../../code/utilities",
   }
 
   defines{"_DEBUG","_SERVER","WIN32","_WINDOWS","_LIB","MY_CMD","_STANDALONE","_OPENALLFUNCTION","NO_DIRECT_X","_USE_32BIT_TIME_T"}
@@ -15,7 +17,7 @@ solution "encoding"
     location "../../code/main"
     kind "ConsoleApp"
     files { "../../code/main/**.h", "../../code/main/**.cpp"}
-    links {"detection"}
+    links {"detection","utilities"}
     libdirs{"../../code/share/library/debug"}
     targetdir "../../bin"
     debugdir "../../bin"
@@ -32,6 +34,18 @@ solution "encoding"
     files { "../../code/detection/**.h", "../../code/detection/**.cpp"}
     targetdir "../../code/share/library/debug"
     targetname "detection"
+      configuration "Debug"
+        flags { "Symbols","FatalWarnings" }
+      configuration "Release"
+        defines { "NDEBUG" }
+        flags { "Optimize", "FatalWarnings"}
+
+  project "utilities"
+    location "../../code/utilities"
+    kind "StaticLib"
+    files { "../../code/utilities/**.h", "../../code/utilities/**.cpp"}
+    targetdir "../../code/share/library/debug"
+    targetname "utilities"
       configuration "Debug"
         flags { "Symbols","FatalWarnings" }
       configuration "Release"
