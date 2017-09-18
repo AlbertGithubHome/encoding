@@ -2,8 +2,11 @@
 #define __MEMORY_INTERFACE_H__
 #include "commondef.h"
 
+#ifndef __INTERFACE__
+#define __INTERFACE__
 // define interface type
 #define interface struct
+#endif
 
 // class CMemoryBlock<T>
 template< typename T >
