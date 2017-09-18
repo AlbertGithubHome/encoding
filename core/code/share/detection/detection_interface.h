@@ -32,24 +32,11 @@ enum E_DETECTION_ERROR
 	e_detection_error_no_result = -100,
 };
 
-interface IDetectionEncoding
-{
-public:
-	virtual int	GetEncoding(const char *szFileName) = 0;
-};
-
 interface detection_infterface
 {
 public:
 	virtual int get_encoding(const char *file_name) = 0;
 };
-
-
-// 获取检测类，不需要释放
-IDetectionEncoding*	CreateDetectionService();
-
-// 判断检测编码服务是否可用
-extern bool IsDetectionServiceValid(IDetectionEncoding* pDetectionService);
 
 // 获取检测类，不需要释放
 detection_infterface* create_detection_handler();
@@ -57,4 +44,4 @@ detection_infterface* create_detection_handler();
 // 判断检测编码服务是否可用
 extern bool is_valid_detection_handler(detection_infterface* detection_handler);
 
-#endif // __DETECTION_INTERFACE_H__
+#endif// __DETECTION_INTERFACE_H__
