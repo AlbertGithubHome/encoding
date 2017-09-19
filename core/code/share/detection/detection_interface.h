@@ -13,8 +13,8 @@
 // define encoding type
 enum E_ENCODING_TYPE
 {
-	e_encoding_utf8_without_bom = 0,
-	e_encoding_ansi = 1,
+	e_encoding_utf8_without_bom = 0,		// utf common format in linux or mac
+	e_encoding_ansi = 1,					// common extend for ascii
 	e_encoding_utf8 = 2,					// EF BB BF		UTF-8
 	e_encoding_ucs2_big_endian = 3,			// FF FE		UTF-16/UCS-2,big edian
 	e_encoding_ucs2_little_endian = 4,		// FE FF		UTF-16/UCS-2,little edian	
@@ -35,6 +35,7 @@ enum E_DETECTION_ERROR
 interface detection_infterface
 {
 public:
+	// use utf8_without_bom when file fit many encodings
 	virtual int get_encoding(const char *file_name) = 0;
 };
 
