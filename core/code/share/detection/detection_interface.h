@@ -20,6 +20,7 @@ enum E_ENCODING_TYPE
 	e_encoding_ucs2_little_endian = 4,		// FE FF		UTF-16/UCS-2,little edian	
 	e_encoding_ucs4_big_endian = 5,			// 00 00 FF FE 	UTF-32/UCS-4,big edian
 	e_encoding_ucs4_little_endian = 6,		// 00 00 FE FF	UTF-32/UCS-4,little edian
+	e_encoding_type_max,
 };
 
 // define detectiong error type

@@ -9,6 +9,18 @@ using namespace std;
 #pragma warning( disable : 4996 )
 #endif
 
+// bom: byte order mark
+unsigned char g_encoding_bom[e_encoding_type_max][6] = {
+	{0x00},									// utf common format in linux or mac
+	{0x00},									// common extend for ascii
+	{0x03, 0xEF, 0xBB, 0xBF, 0x00},			// EF BB BF		UTF-8
+	{0x02, 0xFE, 0xFF, 0x00},				// FF FE		UTF-16/UCS-2,big edian
+	{0x02, 0xFF, 0xFE, 0x00},				// FE FF		UTF-16/UCS-2,little edian	
+	{0x04, 0x00, 0x00, 0xFE, 0xFF, 0x00},	// 00 00 FF FE 	UTF-32/UCS-4,big edian
+	{0x04, 0x00, 0x00, 0xFF, 0xFE, 0x00},	// 00 00 FE FF	UTF-32/UCS-4,little edian
+};
+
+
 detection_infterface* create_detection_handler()
 {
 	zencoding_detection& ref_instance = zencoding_detection::get_instance();
@@ -60,9 +72,14 @@ void zencoding_detection::init_data()
 	m_file_content = NULL;
 }
 
+void zencoding_detection::release_data()
+{
+	safe_delete_array(m_file_content);
+}
+
 bool zencoding_detection::allocate_space()
 {
-	m_file_content =  new unsigned char[MAX_FILE_CONTENT_SIZE];
+	m_file_content =  new unsigned char[MAX_FILE_CONTENT_SIZE + 1];
 	if (!m_file_content)
 		printf("allocate memory space failed!\n");
 
@@ -91,34 +108,19 @@ int zencoding_detection::get_encoding(const char *file_name)
 		return e_detection_error_cannot_openfile;
 
 	inputFile.read((char *)m_file_content, MAX_FILE_CONTENT_SIZE);
-	int nReadCount =inputFile.gcount();
+	int nReadCount = inputFile.gcount();
 	inputFile.close();
+	m_file_content[nReadCount] = '\0';
 
 	if (MAX_FILE_CONTENT_SIZE == nReadCount)
 		return e_detection_error_file_toobig;
 
-	if (nReadCount <= 1)
-		return e_encoding_utf8_without_bom;
-
-	if (nReadCount >= 2)
+	// check encoding with bom
+	for (int encoding_type = e_encoding_utf8; encoding_type < e_encoding_type_max; ++encoding_type)
 	{
-		if (m_file_content[0] == 0xFF && m_file_content[1] == 0xFE)
-			return e_encoding_ucs2_little_endian;
-		else if (m_file_content[0] == 0xFE && m_file_content[1] == 0xFF)
-			return e_encoding_ucs2_big_endian;
-	}
-
-	if (nReadCount >= 3 && (m_file_content[0] == 0xEF &&  m_file_content[1] == 0xBB && m_file_content[2] == 0xBF))
-		return e_encoding_utf8;
-
-
-	if (nReadCount >= 4)
-	{
-		if (m_file_content[0] == 0x0 && m_file_content[1] == 0x0 && m_file_content[2] == 0xFF && m_file_content[3] == 0xFE)
-			return e_encoding_ucs4_little_endian;
-
-		if (m_file_content[0] == 0x0 && m_file_content[1] == 0x0 && m_file_content[2] == 0xFE && m_file_content[3] == 0xFF)
-			return e_encoding_ucs4_big_endian;
+		int n =  strlen((char*)g_encoding_bom[encoding_type]);
+		if (!strncmp((char*)m_file_content, (char*)g_encoding_bom[encoding_type] + 1, g_encoding_bom[encoding_type][0]))
+			return encoding_type;
 	}
 
 	for (int content_index = 0; content_index < nReadCount; ++content_index)
@@ -158,6 +160,8 @@ bool zencoding_detection::is_valid_obj()
 {
 	return !!m_file_content;
 }
+
+
 
 
 

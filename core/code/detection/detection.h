@@ -6,11 +6,13 @@ class zencoding_detection : public detection_infterface
 {
 private:
 	zencoding_detection() { m_is_init = 0; }
-	~zencoding_detection() {}
+	~zencoding_detection() { release_data(); }
 
 	void init_data();
 
 	bool allocate_space();
+
+	void release_data();
 public:
 	static zencoding_detection& get_instance();
 
