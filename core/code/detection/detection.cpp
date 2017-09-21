@@ -123,6 +123,8 @@ int zencoding_detection::get_encoding(const char *file_name)
 			return encoding_type;
 	}
 
+	// if the word is utf8 word that is not two bytes word, the variable will be auto-increment;
+	int utf8_but_not_two_bytes_word_count = 0; 
 	for (int content_index = 0; content_index < nReadCount; ++content_index)
 	{
 		if (m_file_content[content_index] <= ASCII_BYTE_END_VALUE)
@@ -136,6 +138,7 @@ int zencoding_detection::get_encoding(const char *file_name)
 			if (utf8_word_size <= 0)	// 进入此处说明文件有问题，不是正常的文本文件，至今还未出现过
 				return e_detection_error_cannot_detection;
 
+			utf8_but_not_two_bytes_word_count += (utf8_word_size != 2) ? 1 : 0;
 			for(int word_bytes_index = content_index + 1; word_bytes_index <= content_index + utf8_word_size - 1; ++word_bytes_index)
 			{
 				if (m_file_content[word_bytes_index] >= UTF8_OTHER_BYTE_BEGIN_VALUE && m_file_content[word_bytes_index] <= UTF8_OTHER_BYTE_END_VALUE)
@@ -146,6 +149,10 @@ int zencoding_detection::get_encoding(const char *file_name)
 			content_index += (utf8_word_size - 1);
 		}
 	}
+
+	// if all utf8 words have two bytes, it is ansi encoding in all probability.
+	if (!utf8_but_not_two_bytes_word_count)
+		return e_encoding_ansi;
 
 	// 前面逻辑都没找到说明是e_encoding_utf8_without_bom
 	return e_encoding_utf8_without_bom;
