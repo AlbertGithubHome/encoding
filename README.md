@@ -37,7 +37,7 @@ Designed to deal with file coding issues
 
 ### *detection*
 
-We can't detect the encoding of the file through the byte streams accurately in some time. For example, you create a .txt file and open it with notepad on windows. Then you wrote **联通** in it and save. Close it and open it again. You will find it shows messy code. Because the two words contains four bytes, it fit ansi encoding and utf8-without-bom concurrently. So we need to *guess* the encoding of files in some time. I have a idea for the situation. if the byte streams contains n words of utf8 encoding and the n words bath have two bytes. We can judge the encoding of it that is ansi. it *is highly likely* to right.
+We **can't detect** the encoding of the file through the byte streams accurately in some time. For example, you create a .txt file and open it with notepad on windows. Then you wrote **联通** in it and save. Close it and open it again. You will find it shows messy code. Because the two words contains four bytes, it fit ansi encoding and utf8-without-bom concurrently. So we need to *guess* the encoding of files in some time. I have a idea for the situation. if the byte streams contains n words of utf8 encoding and the n words bath have two bytes. We can judge the encoding of it that is ansi. It *is highly likely* to right.
 
 ---
 
